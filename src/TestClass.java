@@ -1,38 +1,62 @@
-import java.io.*;
+
 import java.util.*;
 
-
-public class TestClass {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter wr = new PrintWriter(System.out);
-        int T = Integer.parseInt(br.readLine().trim());
-        for (int t_i = 0; t_i < T; t_i++) {
-            int N = Integer.parseInt(br.readLine().trim());
-            solve(N);
-            //wr.println(out_);
-        }
-
-        wr.close();
-        br.close();
-    }
-
-    static void solve(int N) {
-        boolean flag = false;
-
-        for(int i =0;i<N;i++){
-            if(i%N!=0)
-            {
-                flag = true;
-
-                System.out.println("Yes");
-
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        ArrayList<String> res = new ArrayList<>();
+        boolean flag = true;
+        Scanner sc = new Scanner(System.in);
+        int t = Integer.parseInt(sc.nextLine());
+        while(t>0){
+            String str = sc.nextLine();
+            for(int i=1;i<=str.length();i++){
+                if(!str.contains(Integer.toString(i))){
+                    flag = false;
+                    break;
+                }
             }
+            if(flag==true)
+                res.add("YES");
+            else
+                res.add("NO");
+
+            t--;
+            flag=true;
         }
-        if(flag==false){
-            System.out.println("No");
+        for(int i = 0;i<res.size();i++){
+            System.out.println(res.get(i));
         }
 
-    
     }
 }
+
+
+
+/**
+import java.util.*;
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        boolean flag = true;
+        Scanner sc = new Scanner(System.in);
+        int t = Integer.parseInt(sc.nextLine());
+        while(t>0){
+            String str = sc.nextLine();
+            for(int i=1;i<=str.length();i++){
+                if(!str.contains(Integer.toString(i))){
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag==true)
+                System.out.println("YES");
+            else
+                System.out.println("NO");
+
+            t--;
+            flag = true;
+        }
+
+    }
+}
+*/
